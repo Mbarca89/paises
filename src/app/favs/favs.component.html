@@ -1,0 +1,26 @@
+<div class="position-relative text-center">
+    <h1>Favoritos</h1>
+</div>
+<div class="country-card-container row row-cols-4">
+    <div class="card m-1 p-1" style="width: 18rem;" *ngFor="let country of favoriteCountries">
+        <img src={{country.flags.png}} class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{country.name.common}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Capital: {{country.capital}}</li>
+            <li class="list-group-item">Poblacion: {{country.population}}</li>
+            <li class="list-group-item">Monedas:
+                <ng-container *ngFor="let currency of country.currencies | keyvalue">
+                    {{ currency.key }} ({{ currency.value.name }})
+                </ng-container>
+            </li>
+            <li class="list-group-item">Continente: {{country.region}}</li>
+        </ul>
+        <div class="card-body">
+            <button class="m-1"><a href={{country.maps.googleMaps}} target="_blank"
+                    class="card-link text-decoration-none text-reset">Ver Mapa</a></button>
+            <button (click)="removeFromFavorites(country)" class="m-1">Quitar de Favoritos</button>
+        </div>
+    </div>
+</div>
