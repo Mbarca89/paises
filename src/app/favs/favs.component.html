@@ -3,7 +3,8 @@
 </div>
 <div class="country-card-container row row-cols-4">
     <div class="card m-1 p-1" style="width: 18rem;" *ngFor="let country of favoriteCountries">
-        <img src={{country.flags.png}} class="card-img-top" alt="...">
+        <img *ngIf="country.flags.png" src={{country.flags.png}} class="card-img-top" alt="...">
+        <img *ngIf="!country.flags.png" src="./assets/img/noimage.png" alt="">
         <div class="card-body">
             <h5 class="card-title">{{country.name.common}}</h5>
         </div>
@@ -18,9 +19,10 @@
             <li class="list-group-item">Continente: {{country.region}}</li>
         </ul>
         <div class="card-body">
-            <button class="m-1"><a href={{country.maps.googleMaps}} target="_blank"
-                    class="card-link text-decoration-none text-reset">Ver Mapa</a></button>
-            <button (click)="removeFromFavorites(country)" class="m-1">Quitar de Favoritos</button>
+            <button *ngIf="!country.custom" class="m-1 col-12"><a href={{country.maps.googleMaps}} target="_blank" class="card-link text-decoration-none text-reset">Ver Mapa</a></button>
+            <button *ngIf="!country.custom" (click)="removeFromFavorites(country)" class="m-1 col-12">Quitar de Favoritos</button>
+            <button *ngIf="country.custom" class="m-1 col-12" [routerLink]="['/edit', country.name.common]">Modificar país</button>
+            <button *ngIf="country.custom" (click)="removeFromFavorites(country)" class="m-1 col-12">Eliminar país</button>
         </div>
     </div>
 </div>

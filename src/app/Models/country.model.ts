@@ -23,4 +23,5 @@ export interface Country {
       googleMaps: string
     }
     spanish:boolean
+    custom:boolean
   }

@@ -4,11 +4,13 @@ import { CountriesComponent } from './countries/countries.component';
 import { FavsComponent } from './favs/favs.component';
 import { SearchComponent } from './search/search.component';
 import { CreateComponent } from './create/create.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   { path: 'countries', component: CountriesComponent},
   { path: 'favs', component: FavsComponent},
-  { path: 'create', component: CreateComponent}
+  { path: 'create', component: CreateComponent},
+  { path: 'edit/:name', component: EditComponent}
 ];
 
 @NgModule({

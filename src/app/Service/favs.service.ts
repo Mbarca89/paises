@@ -14,7 +14,6 @@ export class FavService {
 
   addFav(country: Country) {
     if (!this.favoriteCountries.some((c) => c.name.common === country.name.common)){
-      console.log(this.favoriteCountries,country)
       this.favoriteCountries.push(country)
 
     }

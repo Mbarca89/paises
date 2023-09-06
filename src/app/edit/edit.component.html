@@ -1,52 +1,53 @@
 <div class="position-relative text-center">
-    <h1>Crea tu país</h1>
+    <h1>Modificar país</h1>
 </div>
 <div class="container">
-    <form [formGroup]="createForm" class="row g-3 needs-validation" novalidate (ngSubmit)="create()">
+    <form [formGroup]="editForm" class="row g-3 needs-validation" novalidate (ngSubmit)="edit()">
         <div class="mb-3 col-6">
             <label for="name" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="name" placeholder="Nombre..." formControlName="name">
-            <div *ngIf="!createForm?.get('name')?.valid && createForm?.get('name')?.touched">
+            <div *ngIf="!editForm?.get('name')?.valid && editForm?.get('name')?.touched">
                 <span style="color:red">Ingrese un nombre</span>
             </div>
         </div>
         <div class="mb-3 col-6">
             <label for="capital" class="form-label">Capital</label>
             <input type="text" class="form-control" id="capital" placeholder="Capital..." formControlName="capital">
-            <div *ngIf="!createForm?.get('capital')?.valid && createForm?.get('capital')?.touched">
+            <div *ngIf="!editForm?.get('capital')?.valid && editForm?.get('capital')?.touched">
                 <span style="color:red">Ingrese una capital</span>
             </div>
         </div>
         <div class="mb-3 col-6">
             <label for="population" class="form-label">Población</label>
             <input type="text" class="form-control" id="population" placeholder="Población..." formControlName="population">
-            <div *ngIf="!createForm?.get('population')?.valid && createForm?.get('population')?.touched">
+            <div *ngIf="!editForm?.get('population')?.valid && editForm?.get('population')?.touched">
                 <span style="color:red">Ingrese la población. Solo números</span>
             </div>
         </div>
         <div class="mb-3 col-6">
             <label for="currencyCode" class="form-label">Código de Moneda</label>
             <input type="text" class="form-control" id="currency" placeholder="Moneda..." formControlName="currencyCode">
-            <div *ngIf="!createForm?.get('currencyCode')?.valid && createForm?.get('currencyCode')?.touched">
+            <div *ngIf="!editForm?.get('currencyCode')?.valid && editForm?.get('currencyCode')?.touched">
                 <span style="color:red">Ingrese el código de la moneda. Solo 3 letras</span>
             </div>
         </div>
         <div class="mb-3 col-6">
             <label for="currency" class="form-label">Nombre de la Moneda</label>
             <input type="text" class="form-control" id="currency" placeholder="Moneda..." formControlName="currency">
-            <div *ngIf="!createForm?.get('currency')?.valid && createForm?.get('currency')?.touched">
+            <div *ngIf="!editForm?.get('currency')?.valid && editForm?.get('currency')?.touched">
                 <span style="color:red">Ingrese el nombre de la moneda. Solo letras</span>
             </div>
         </div>
         <div class="mb-3 col-6">
             <label for="continent" class="form-label">Continente</label>
             <input type="text" class="form-control" id="continent" placeholder="Continente..." formControlName="continent">
-            <div *ngIf="!createForm?.get('continent')?.valid && createForm?.get('continent')?.touched">
+            <div *ngIf="!editForm?.get('continent')?.valid && editForm?.get('continent')?.touched">
                 <span style="color:red">Ingrese un continente</span>
             </div>
         </div>
         <div class="col-12">
-            <button [disabled]="!createForm.valid" class="btn btn-primary" type="submit">Crear</button>
+            <button [disabled]="!editForm.valid" class="btn btn-primary m-1" type="submit">Guardar</button>
+            <button class="btn btn-primary m-1" [routerLink]="['/favs']">Calcelar</button>
         </div>
     </form>
 </div>
