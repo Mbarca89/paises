@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../Service/countries.service';
 import { FavService } from '../Service/favs.service';
-import { Country } from '../Models/Country.model';
+import { Country } from '../Models/country.model';
 
 @Component({
   selector: 'app-countries',

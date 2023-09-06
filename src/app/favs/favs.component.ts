@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FavService } from '../Service/favs.service';
-import { Country } from '../Models/Country.model';
+import { Country } from '../Models/country.model';
 
 @Component({
   selector: 'app-favs',

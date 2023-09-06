@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Country } from '../Models/Country.model';
+import { Country } from '../Models/country.model';
 import { FavService } from '../Service/favs.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
