@@ -1,1 +1,37 @@
-<p>search works!</p>
+<div class="position-relative text-center">
+    <h1>Resultados de la búsqueda</h1>
+</div>
+<div class="country-card-container row row-cols-4">
+    <div class="card m-1 p-1 justify-center" style="width: 18rem;" *ngFor="let country of countries">
+        <img src={{country.flags.png}} class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{getCountryName(country)}}</h5>
+            <button *ngIf="country.spanish || country.spanish === undefined"
+                (click)="translate(country)">Ingles</button>
+            <button *ngIf="country.spanish === false" (click)="translate(country)">Español</button>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Capital: {{country.capital}}</li>
+            <li class="list-group-item">Poblacion: {{country.population}}</li>
+            <li class="list-group-item">Monedas:
+                <ng-container *ngFor="let currency of country.currencies | keyvalue">
+                    {{ currency.key }} ({{ currency.value.name }})
+                </ng-container>
+            </li>
+            <li class="list-group-item">Continente: {{country.region}}</li>
+        </ul>
+        <div class="card-body">
+            <button class="m-1"><a href={{country.maps.googleMaps}} target="_blank"
+                    class="card-link text-decoration-none text-reset">Ver Mapa</a></button>
+            <button *ngIf="!isCountryInFavorites(country)" (click)="addToFavorites(country)" class="m-1">Agregar a
+                Favoritos</button>
+            <button *ngIf="isCountryInFavorites(country)" (click)="removeFromFavorites(country)" class="m-1">Eliminar de
+                Favoritos</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="countries.length === 0" class="position-relative d-flex flex-column align-items-center text-center mt-5">
+    <h2>No se encontraron resultados</h2>
+    <h3 class="mt-5">Puedes crear tu propio país</h3>
+    <button class="btn btn-primary" routerLink="create">Crear</button>
+</div>

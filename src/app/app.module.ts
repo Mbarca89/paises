@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CountryComponent } from './country/country.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { EditComponent } from './edit/edit.component';
     NavBarComponent,
     routingComponents,
     CountryComponent,
-    EditComponent
+    EditComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

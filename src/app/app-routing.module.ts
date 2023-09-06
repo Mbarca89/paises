@@ -7,10 +7,11 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
-  { path: 'countries', component: CountriesComponent},
+  { path: '', component: CountriesComponent},
   { path: 'favs', component: FavsComponent},
   { path: 'create', component: CreateComponent},
-  { path: 'edit/:name', component: EditComponent}
+  { path: 'edit/:name', component: EditComponent},
+  { path: 'search/:param', component: SearchComponent}
 ];
 
 @NgModule({
